@@ -19,7 +19,6 @@ RSpec.describe User, type: :model do
     expect(subject).to be_valid
   end
 
-
   context 'latest_post method' do
     before do
       4.times do
