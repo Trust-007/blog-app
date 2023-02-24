@@ -19,11 +19,17 @@ RSpec.describe User, type: :model do
     expect(subject).to be_valid
   end
 
-  it 'Returns 3 most recent post' do
-    subject.posts.create(title: 'Hello', text: 'This is my first post')
-    subject.posts.create(title: 'Hello', text: 'This is my second post')
-    subject.posts.create(title: 'Hello', text: 'This is my third post')
-    subject.posts.create(title: 'Hello', text: 'This is my fourth post')
-    expect(subject.three_most_recent_post.count).to eql(3)
+
+  context 'latest_post method' do
+    before do
+      4.times do
+        Post.create(author: subject, title: 'James', text: 'This is my first post again', comments_counter: 0,
+                    likes_counter: 0)
+      end
+    end
+
+    it 'should retun the 3 latest posts' do
+      expect(subject.three_most_recent_post.length).to eq 3
+    end
   end
 end
