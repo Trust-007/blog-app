@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-    subject { User.new(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Poland.', posts_counter: 0) }
+  subject { User.new(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Poland.', posts_counter: 0) }
 
   before { subject.save }
 
@@ -26,5 +26,4 @@ RSpec.describe User, type: :model do
     subject.posts.create(title: 'Hello', text: 'This is my fourth post')
     expect(subject.three_most_recent_post.count).to eql(3)
   end
-
 end
