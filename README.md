@@ -33,14 +33,13 @@
 ## 🛠 Built With <a name="built-with"></a>
 
 - Ruby
-- Rails
 
 ### Tech Stack <a name="tech-stack"></a>
 
 <details>
   <summary>Client</summary>
   <ul>
-    <li><a href="https://N/A.org/">N/A</a></li>
+    <li><a href="https://N/A.org/">Rails</a></li>
   </ul>
 </details>
 
@@ -54,7 +53,7 @@
 <details>
 <summary>Database</summary>
   <ul>
-    <li>N/A</li>
+    <li>Postgresql</li>
   </ul>
 </details>
 
