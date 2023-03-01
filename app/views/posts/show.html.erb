@@ -1,1 +1,20 @@
-Here is a single post for a given user
+<div > 
+    <h3><%= @post.title %> by <%= User.find_by(id: @post.author_id).name%></h3>
+    <p><%= @post.text %></p>
+    <p>Likes: <%= @post.likes_counter %></p>
+    <p>Comments: <%= @post.comments_counter %></p>
+</div>
+
+<% if @comments.empty? %>
+              <h1>No comments for this post</h1>
+           <% else %>
+           <ul>
+             <% @comments.each do |comment| %>
+                <% if comment.post_id == @post.id %>
+                    <li>   
+                        <p><%= User.find_by(id: comment.author_id).name%>: <%= comment.text %></p>
+                    </li>
+                <% end %>    
+             <% end %>
+            </ul>
+            <% end %>
