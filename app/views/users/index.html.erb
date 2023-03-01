@@ -1,1 +1,15 @@
-Here is a list of users
+<% if @users.empty? %>
+   <h1>No users</h1>
+<% else %>
+    <ul>
+      <% @users.each do |user| %>
+        <li style='display:flex;'> 
+          <img src=<% user.photo %> />
+          <div>
+            <h3><%= user.name %></h3>
+            <p>Number of Posts: <%= user.posts_counter %></p>
+          </div>
+        </li>
+      <% end %>  
+    </ul>
+<% end %>
