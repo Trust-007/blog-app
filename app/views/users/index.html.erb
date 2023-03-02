@@ -1,9 +1,9 @@
 <% if @users.empty? %>
    <h1>No users</h1>
 <% else %>
-    <ul>
+    <ul class='users_list'>
       <% @users.each do |user| %>
-        <li style='display:flex;'> 
+        <li class='user_card'> 
           <img src=<% user.photo %> />
           <div>
             <h3><%= user.name %></h3>

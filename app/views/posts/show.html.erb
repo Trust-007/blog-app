@@ -1,14 +1,18 @@
-<div > 
-    <h3><%= @post.title %> by <%= User.find_by(id: @post.author_id).name%></h3>
+<div class='post_card_main' > 
+   <div>
+        <h3><%= @post.title %> by <%= User.find_by(id: @post.author_id).name%></h3>
+        <div class='comments_likes'>
+            Likes: <%= @post.likes_counter %>
+            Comments: <%= @post.comments_counter %>
+        </div>
+    </div>
     <p><%= @post.text %></p>
-    <p>Likes: <%= @post.likes_counter %></p>
-    <p>Comments: <%= @post.comments_counter %></p>
 </div>
 
 <% if @comments.empty? %>
               <h1>No comments for this post</h1>
            <% else %>
-           <ul>
+           <ul class='comments2'>
              <% @comments.each do |comment| %>
                 <% if comment.post_id == @post.id %>
                     <li>   

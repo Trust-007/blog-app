@@ -13,3 +13,125 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.users_list {
+  list-style: none;
+  max-width: 100%;
+}
+
+.user_card {
+  display: flex;
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+  margin-inline: 5%;
+}
+
+.user_card img {
+  width: 250px;
+  height: 150px;
+  border: 2px solid black;
+}
+
+.user_card div {
+  width: 100%;
+  border: 2px solid black;
+  height: 120px;
+}
+
+.user_card div h3 {
+  font-size: 30px;
+  margin-left: 10px;
+  margin-bottom: 0;
+}
+
+.user_card div p {
+  text-align: end;
+  margin-right: 30px;
+}
+
+.bio_card {
+  margin-inline: 5%;
+  border: 2px solid black;
+  height: 200px;
+  margin-top: 20px;
+  padding-inline: 10px;
+}
+
+.post_list {
+  list-style: none;
+}
+
+.post_card {
+  margin-right: 5%;
+  margin-left: 2%;
+  border: 2px solid black;
+  margin-block: 10px;
+  padding-inline: 10px;
+}
+
+.post_card div {
+  max-width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  font-size: 13px;
+  padding-right: 20px;
+}
+
+button {
+  margin-left: 45%;
+  border: 2px solid black;
+  box-shadow: 5px 5px 0 rgb(0, 0, 0);
+  margin-block: 10px;
+}
+
+button a {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.comments {
+  list-style: none;
+  margin-inline: 0;
+  padding: 0;
+}
+
+.comments2 {
+  list-style: none;
+  margin-left: 2%;
+  margin-right: 5%;
+  padding: 5px;
+  border: 2px solid black;
+}
+
+.post_card_main {
+  margin-right: 5%;
+  margin-left: 2%;
+  border: 2px solid black;
+  margin-block: 10px;
+  padding-inline: 10px;
+}
+
+.post_card_main div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comments_likes {
+  max-width: 100%;
+  display: flex;
+  gap: 10px;
+  font-size: 13px;
+  padding-right: 20px;
+}
