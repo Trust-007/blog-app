@@ -16,8 +16,10 @@
         <li class='post_card'> 
            <h3><%= post.title %></h3>
            <p><%= post.text %></p>
+           <div>
            <p>Likes: <%= post.likes_counter %></p>
-           <p>Comments: <%= post.comments_counter %></p>  
+           <p>Comments: <%= post.comments_counter %></p> 
+           </div> 
            <ul class='comments'>
               <% post.five_most_recent_comments.each do |comment| %>
                 <li><%=User.find_by(id: comment.author_id).name%>: <%=comment.text %></li>
