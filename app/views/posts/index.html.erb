@@ -8,11 +8,11 @@
 <div>
 
 
-<% if @posts.empty? %>
+<% if @user.posts.empty? %>
    <h1>No posts for this user</h1>
 <% else %>
     <ul class='post_list'>
-     <% @posts.each do |post| %>
+     <% @user.posts.each do |post| %>
         <li class='post_card'> 
            <h3><%= post.title %></h3>
            <p><%= post.text %></p>

@@ -3,12 +3,14 @@
 <% else %>
     <ul class='users_list'>
       <% @users.each do |user| %>
-        <li class='user_card'> 
+        <li class='user'>
+         <a href="<%=user_path(user.id)%>"> 
           <img src=<% user.photo %> />
           <div>
-            <h3><%= user.name %></h3>
-            <p>Number of Posts: <%= user.posts_counter %></p>
+          <h3><%= user.name %></h3>
+          <p>Number of Posts: <%= user.posts_counter %></p>
           </div>
+         </a>
         </li>
       <% end %>  
     </ul>

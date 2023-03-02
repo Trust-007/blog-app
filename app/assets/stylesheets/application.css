@@ -24,6 +24,7 @@ body {
   max-width: 100%;
 }
 
+.user a,
 .user_card {
   display: flex;
   max-width: 100%;
@@ -34,24 +35,28 @@ body {
   margin-inline: 5%;
 }
 
+.user a img,
 .user_card img {
   width: 250px;
   height: 150px;
   border: 2px solid black;
 }
 
+.user a div,
 .user_card div {
   width: 100%;
   border: 2px solid black;
   height: 120px;
 }
 
+.user a div h3,
 .user_card div h3 {
   font-size: 30px;
   margin-left: 10px;
   margin-bottom: 0;
 }
 
+.user a div p,
 .user_card div p {
   text-align: end;
   margin-right: 30px;
