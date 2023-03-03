@@ -22,7 +22,7 @@ class PostsController < ApplicationController
   end
 
   private
-  
+
   def person_params
     params
       .require(:post)

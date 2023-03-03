@@ -23,7 +23,7 @@ class Post < ApplicationRecord
   end
 
   def set_defaults
-     self.likes_counter = 0 if likes_counter.blank?
-     self.comments_counter = 0 if likes_counter.blank?
+    self.likes_counter = 0 if likes_counter.blank?
+    self.comments_counter = 0 if likes_counter.blank?
   end
 end
