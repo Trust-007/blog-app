@@ -14,11 +14,10 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(person_params)
-
     if @post.save
-      redirect_to users_path
+      redirect_to user_posts_path
     else
-      render :new
+      render 'new'
     end
   end
 
@@ -28,6 +27,6 @@ class PostsController < ApplicationController
     params
       .require(:post)
       .permit(:title, :text)
-      .merge(author: current_user)
+      .merge(author: current_user, comments_counter: 0, likes_counter: 0)
   end
 end

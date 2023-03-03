@@ -3,9 +3,12 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :likes
 
+  before_validation :set_defaults, on: :create
+
   after_save :update_post_user_counter
 
   validates :title, presence: true, length: { maximum: 250 }
+  validates :text, presence: true, length: { maximum: 1000 }
   validates :likes_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :comments_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
@@ -17,5 +20,10 @@ class Post < ApplicationRecord
 
   def update_post_user_counter
     author.increment!(:posts_counter)
+  end
+
+  def set_defaults
+     self.likes_counter = 0 if likes_counter.blank?
+     self.comments_counter = 0 if likes_counter.blank?
   end
 end

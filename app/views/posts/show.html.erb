@@ -7,6 +7,7 @@
         </div>
     </div>
     <p><%= @post.text %></p>
+    <%= render 'likes/new_like', local: {post: @post} %>
 </div>
 
 <% if @comments.empty? %>
@@ -22,3 +23,5 @@
              <% end %>
             </ul>
             <% end %>
+
+            <button><%= link_to  "Create new Comment", new_user_post_comment_path(@post.author, @post)  %></button>
