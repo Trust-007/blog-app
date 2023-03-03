@@ -1,1 +1,33 @@
-Here is a list of posts for a given user
+<div class='user_card'> 
+    <img src=<% @user.photo %> />
+    <div>
+    <h3><%= @user.name %></h3>
+    <p>Number of Posts: <%= @user.posts_counter %></p>
+    </div>
+  </div>
+<div>
+
+
+<% if @user.posts.empty? %>
+   <h1>No posts for this user</h1>
+<% else %>
+    <ul class='post_list'>
+     <% @user.posts.each do |post| %>
+        <li class='post_card'> 
+           <h3><%= post.title %></h3>
+           <p><%= post.text %></p>
+           <div>
+           <p>Likes: <%= post.likes_counter %></p>
+           <p>Comments: <%= post.comments_counter %></p> 
+           </div> 
+           <ul class='comments'>
+              <% post.five_most_recent_comments.each do |comment| %>
+                <li><%=User.find_by(id: comment.author_id).name%>: <%=comment.text %></li>
+              <% end %> 
+            </ul>
+        </li>
+      <% end %>
+    </ul>
+<% end %>
+
+<button> Pagination</button>

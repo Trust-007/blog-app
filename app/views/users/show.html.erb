@@ -1,1 +1,29 @@
-Here is a single user
+<div>
+  <div class='user_card'> 
+    <img src=<% @user.photo %> />
+    <div>
+    <h3><%= @user.name %></h3>
+    <p>Number of Posts: <%= @user.posts_counter %></p>
+    </div>
+  </div>
+  <div class='bio_card'>
+    <h4>Bio</h4>
+    <p><%= @user.bio %></p>
+  </div>
+  <ul class='post_list'>
+     <% @user_posts.each do |post| %>
+        <li class='post_card'> 
+           <h3><%= post.title %></h3>
+           <p><%= post.text %></p>
+           <div>
+           <p>Likes: <%= post.likes_counter %></p>
+           <p>Comments: <%= post.comments_counter %></p>
+           </div>
+        </li>
+      <% end %>
+  </ul>
+</div>
+  <button>
+   <%= link_to 'See all posts', user_posts_path(@user.id) %>
+  </button>
+  
