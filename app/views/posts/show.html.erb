@@ -10,11 +10,11 @@
     <%= render 'likes/new_like', local: {post: @post} %>
 </div>
 
-<% if @comments.empty? %>
+<% if @post.comments.empty? %>
               <h1>No comments for this post</h1>
            <% else %>
            <ul class='comments2'>
-             <% @comments.each do |comment| %>
+             <% @post.comments.each do |comment| %>
                 <% if comment.post_id == @post.id %>
                     <li>   
                         <p><%= User.find_by(id: comment.author_id).name%>: <%= comment.text %></p>
