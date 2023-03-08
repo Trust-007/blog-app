@@ -3,7 +3,7 @@ require 'capybara/rspec'
 
 base_url = 'http://localhost:3000'
 
-posts_id = User.find(1).posts.map(&:id) 
+posts_id = User.find(1).posts.map(&:id)
 random_post = posts_id[rand(0...posts_id.length)]
 
 RSpec.feature 'Posts#show view', type: :feature do
@@ -46,7 +46,7 @@ RSpec.feature 'Posts#show view', type: :feature do
   end
 
   scenario 'the name of each commentor appears on the page' do
-    if (@user.id == 1)
+    if @user.id == 1
       page_commentors = page.all('.comments2 li').map { |c| c.text.split(/ : /)[0] }
       post_commentors = Post.includes(comments: :author).find(random_post).comments.map { |c| c.author.name }
 
@@ -55,7 +55,7 @@ RSpec.feature 'Posts#show view', type: :feature do
   end
 
   scenario 'all the comments are displayed on the page' do
-    if (@user.id == 1)
+    if @user.id == 1
       page_comments = page.all('.comments2 li').map { |c| c.text.split(/ : /)[1] }
       post_comments = Post.includes(comments: :author).find(random_post).comments.map(&:text)
 
@@ -70,4 +70,3 @@ RSpec.feature 'Posts#show view', type: :feature do
     visit "#{base_url}/users/1/posts/#{random_post}"
   end
 end
-
