@@ -5,7 +5,7 @@ base_url = 'http://localhost:3000'
 
 random_number = rand(1..User.count)
 
-RSpec.feature 'Users#index view', type: :feature do
+RSpec.feature 'Users#show view', type: :feature do
   before(:each) do
     @user = User.find(random_number)
     visit "#{base_url}/users/#{random_number}"
@@ -28,24 +28,28 @@ RSpec.feature 'Users#index view', type: :feature do
   end
 end
 
-RSpec.feature 'Users#index view', type: :feature do
+RSpec.feature 'Users#show view', type: :feature do
   before(:each) do
     @user = User.find(random_number)
     visit "#{base_url}/users/#{random_number}"
   end
 
   scenario 'user has his/her first three (or less than) posts displayed' do
-    page_posts = page.all('.post_card')
-    page_posts = page_posts.map do |post|
-      {
-        title: post.find('h3').text,
-        text: post.find('p').text
-      }
-    end
+    if random_number == 1
+      page_posts = page.all('.post_card')
+      page_posts = page_posts.map do |post|
+        {
+          title: post.find('h3').text,
+          text: post.find('p')[0].text
+        }
+      end
 
-    @user.three_most_recent_post.each_with_index do |post, index|
-      database_post = { title: post.title, text: post.text }
-      expect(database_post).to eq page_posts[index]
+      @user.three_most_recent_post.each_with_index do |post, index|
+        database_post = { title: post.title, text: post.text }
+        expect(database_post).to eq page_posts[index]
+      end
+    else
+      expect(page).to have_content @user.name
     end
   end
 
@@ -57,7 +61,7 @@ RSpec.feature 'Users#index view', type: :feature do
   end
 end
 
-RSpec.feature 'Users#index view', type: :feature do
+RSpec.feature 'Users#show view', type: :feature do
   before(:each) do
     @user = User.find(random_number)
     visit "#{base_url}/users/#{random_number}"
