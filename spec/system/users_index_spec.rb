@@ -4,7 +4,7 @@ require 'capybara/rspec'
 base_url = 'http://localhost:3000'
 RSpec.feature 'Static content', type: :feature do
   users = User.all
-  before(:each) do 
+  before(:each) do
     visit "#{base_url}/users"
   end
   scenario 'all users from the database are present' do
@@ -13,9 +13,9 @@ RSpec.feature 'Static content', type: :feature do
 
   scenario 'each user has the right number of posts' do
     count = 3
-    page.all('li').each.with_index(1) do |user|
+    page.all('li').each do |user|
       expect(user.all('p')[0].text.scan(/\d+/).first.to_i).to have_content users.find(count).posts_counter
-      count = count - 1
+      count -= 1
     end
   end
 
