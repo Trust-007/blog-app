@@ -63,7 +63,6 @@ RSpec.feature 'Users#index view', type: :feature do
     visit "#{base_url}/users/#{random_number}"
   end
 
-
   scenario 'clicking on All Posts button redirects me to all posts page' do
     page.find('button a').click
 
