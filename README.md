@@ -134,6 +134,12 @@ You can deploy this project using:
 - Twitter: [@twitterhandle](https://twitter.com/simeontrust7)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/trust-simeon/)
 
+👤 **Mancoba Sihlongonyane**
+
+- GitHub: [@manq2010](https://github.com/manq2010/)
+- Twitter: [@mancoba_c](https://twitter.com/mancoba_c/)
+- LinkedIn: [mancobasihlongonyane](https://linkedin.com/in/mancobasihlongonyane/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
