@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @user = User.includes(:posts).find(params[:user_id])
   end
@@ -26,6 +28,6 @@ class PostsController < ApplicationController
     params
       .require(:post)
       .permit(:title, :text)
-      .merge(author: current_user, comments_counter: 0, likes_counter: 0)
+      .merge(author: current_user)
   end
 end
