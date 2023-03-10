@@ -140,3 +140,50 @@ button a {
   font-size: 13px;
   padding-right: 20px;
 }
+
+.form_container {
+  margin-inline: 30%;
+}
+
+.form_container h2 {
+  text-align: center;
+  font-size: 30px;
+}
+
+.register_form input {
+  width: 100%;
+  border: 3px solid black;
+  margin-top: 10px;
+}
+
+.register_form label {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.register_form textarea {
+  width: 100%;
+  border: 3px solid black;
+  height: 150px;
+  margin-top: 10px;
+}
+
+.register_form .actions {
+  box-shadow: 0 2px 0 rgb(0, 0, 0);
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.register_form .checkbox {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.register_form .checkbox input {
+  width: 15px;
+}
+
+.register_form .checkbox label {
+  font-size: 15px;
+}
