@@ -7,7 +7,8 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
 
     if @comment.save
-      redirect_to user_posts_path(current_user)
+      user = User.find(params[:user_id])
+      redirect_to user_posts_path(user)
     else
       render :new
     end
@@ -19,6 +20,6 @@ class CommentsController < ApplicationController
     params
       .require(:comment)
       .permit(:text)
-      .merge(author: current_user, post: current_user.posts.find(params[:post_id]))
+      .merge(author: current_user, post: Post.find(params[:post_id]))
   end
 end
