@@ -1,9 +1,8 @@
 class Post < ApplicationRecord
   belongs_to :author, class_name: 'User'
-  has_many :comments
-  has_many :likes
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
-  before_validation :set_defaults, on: :create
 
   after_save :update_post_user_counter
 
@@ -22,8 +21,4 @@ class Post < ApplicationRecord
     author.increment!(:posts_counter)
   end
 
-  def set_defaults
-    self.likes_counter = 0 if likes_counter.blank?
-    self.comments_counter = 0 if likes_counter.blank?
-  end
 end
