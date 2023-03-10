@@ -20,6 +20,9 @@
            <p>Likes: <%= post.likes_counter %></p>
            <p>Comments: <%= post.comments_counter %></p>
            <a href="/users/<%= @user.id %>/posts/<%= post.id %>" class="">view post</a>
+           <% if can? :destroy, post %>
+             <%= button_to 'Delete post', user_post_path(post.author, post), method: :delete, data: { confirm: 'Are you sure?' } %>
+           <% end %>   
            </div> 
            <ul class='comments'>
               <% post.five_most_recent_comments.each do |comment| %>
