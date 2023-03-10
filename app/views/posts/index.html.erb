@@ -19,7 +19,9 @@
            <div>
            <p>Likes: <%= post.likes_counter %></p>
            <p>Comments: <%= post.comments_counter %></p>
-           <a href="/users/<%= @user.id %>/posts/<%= post.id %>" class="">view post</a>
+           <button class='view-post_btn'>
+           <a href="/users/<%= @user.id %>/posts/<%= post.id %>" class='view_post'>view post</a>
+           </button>
            <% if can? :destroy, post %>
              <%= button_to 'Delete post', user_post_path(post.author, post), method: :delete, data: { confirm: 'Are you sure?' } %>
            <% end %>   
@@ -34,4 +36,6 @@
     </ul>
 <% end %>
 
-<button> <%= link_to 'New Post', new_user_post_path(@user.id) %></button>
+<% if current_user.id == @user.id %>
+   <button> <%= link_to 'New Post', new_user_post_path(@user.id) %></button>
+<% end %>
