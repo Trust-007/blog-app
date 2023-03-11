@@ -1,8 +1,13 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!
+   before_action :authenticate_user!, only: [:create]
 
   def index
     @user = User.includes(:posts).find(params[:user_id])
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render :json => @user.posts }
+    end
   end
 
   def show
